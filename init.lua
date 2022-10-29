@@ -3,7 +3,8 @@ local modules = {
   'user.keymaps',
   'user.plugins',
   'user.reload',
-  'nvim-tree.config'
+  'nvim-tree.config',
+  'user.gitsigns',
 }
 
 -- disable netrw. using nvim tree instead
