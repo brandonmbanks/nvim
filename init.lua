@@ -3,7 +3,7 @@ local modules = {
   'user.keymaps',
   'user.plugins',
   'user.reload',
-  'nvim-tree.config',
+  'user.nvim-tree',
   'user.gitsigns',
 }
 
