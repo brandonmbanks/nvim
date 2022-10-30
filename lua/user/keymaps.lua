@@ -1,14 +1,17 @@
 local opts = { noremap = true, silent = true }
 
--- shorten function name
-local keymap = vim.api.nvim_set_keymap
+local function map(mode, shortcut, cmd, opts)
+    opts = opts or {}
+    opts.buffer = bufnr
+    vim.keymap.set(mode, shortcut, cmd, opts)
+end
 
 -- remap space as leader key
-keymap('', '<Space>', '<Nop>', opts)
+map('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.keymap.set('n', '<leader>sv', '<cmd>lua ReloadConfig()<CR>', {})
+map('n', '<leader>sv', '<cmd>lua ReloadConfig()<CR>')
 
 -- Modes
 --  normal_mode = 'n'
@@ -20,41 +23,41 @@ vim.keymap.set('n', '<leader>sv', '<cmd>lua ReloadConfig()<CR>', {})
 
 -- Normal --
 -- better window navigation
-keymap('n', '<C-h>', '<C-w>h', opts)
-keymap('n', '<C-j>', '<C-w>j', opts)
-keymap('n', '<C-k>', '<C-w>k', opts)
-keymap('n', '<C-l>', '<C-w>l', opts) -- this is not working from Explorer but ctrl-w l does
+map('n', '<C-h>', '<C-w>h')
+map('n', '<C-j>', '<C-w>j')
+map('n', '<C-k>', '<C-w>k')
+map('n', '<C-l>', '<C-w>l')
 
 -- telescope
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>p', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
+map('n', '<leader>ff', builtin.find_files)
+map('n', '<leader>p', builtin.find_files)
+map('n', '<leader>fg', builtin.live_grep)
+map('n', '<leader>fb', builtin.buffers)
+map('n', '<leader>fh', builtin.help_tags)
+map('n', '<leader>gb', builtin.git_branches)
 
 -- file explorer
-keymap('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
+map('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
 
 -- terminal
-vim.keymap.set('t', '<Esc>', '<C-\\><C-N>', {}) -- exit terminal mode
-vim.keymap.set('n', '<leader>t', ':vsplit term://bash<CR>', {})
+map('t', '<Esc>', '<C-\\><C-N>') -- exit terminal mode
+map('n', '<leader>t', ':vsplit term://bash<CR>')
 
 -- resize windows with arrows
-keymap('n', '<C-Up>', ':resize +2<CR>', opts)
-keymap('n', '<C-Down>', ':resize -2<CR>', opts)
-keymap('n', '<C-Left>', ':vertical resize -2<CR>', opts)
-keymap('n', '<C-Right>', ':vertical resize +2<CR>', opts)
+map('n', '<C-Up>', ':resize +2<CR>', opts)
+map('n', '<C-Down>', ':resize -2<CR>', opts)
+map('n', '<C-Left>', ':vertical resize -2<CR>', opts)
+map('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 
 -- Insert --
 -- quick exit to normal mode
-keymap('i', 'jj', '<Esc>', opts)
-keymap('i', 'jk', '<Esc>', opts)
-keymap('i', 'kk', '<Esc>', opts)
+map('i', 'jj', '<Esc>', opts)
+map('i', 'jk', '<Esc>', opts)
+map('i', 'kk', '<Esc>', opts)
 
 -- Visual
 -- move text
-keymap('v', '<A-k>', ':m .+1<CR>==', opts)
-keymap('v', '<A-j>', ':m .-1<CR>==', opts)
+map('v', '<A-k>', ':m .+1<CR>==', opts)
+map('v', '<A-j>', ':m .-1<CR>==', opts)
 
