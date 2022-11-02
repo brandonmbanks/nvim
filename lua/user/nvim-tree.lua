@@ -5,6 +5,7 @@ end
 
 nvim_tree.setup({
     view = {
+        side = "left",
         mappings = {
             custom_only = false,
             list = {

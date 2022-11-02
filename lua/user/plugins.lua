@@ -17,10 +17,10 @@ end
 
 -- Autocommand that reloads neovim whenever you save the packer.lua file
 vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
+    augroup packer_user_config
+        autocmd!
+        autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    augroup end
 ]])
 
 -- Use a protected call so we don't error out on first use
@@ -60,11 +60,11 @@ return packer.startup(function(use)
     }
 
     use {
-      'nvim-tree/nvim-tree.lua',
-      requires = {
-        'nvim-tree/nvim-web-devicons', -- optional, for file icons
-      },
-      tag = 'nightly' -- optional, updated every week. (see issue #1193)
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+        tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
     -- helpers
@@ -74,11 +74,11 @@ return packer.startup(function(use)
     -- syntax highlighting
     use 'nvim-treesitter/nvim-treesitter'
     require('nvim-treesitter.configs').setup {
-      -- A list of parser names, or 'all'
-      ensure_installed = {'lua', 'rust', 'go'},
-      highlight = {
-        enable = true,
-      },
+        -- A list of parser names, or 'all'
+        ensure_installed = {'lua', 'rust', 'go'},
+        highlight = {
+            enable = true,
+        },
     }
 
     use 'lewis6991/gitsigns.nvim'

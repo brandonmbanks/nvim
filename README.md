@@ -16,3 +16,6 @@ Open `nvim` and enter the following:
 ```
 :checkhealth
 ```
+
+This was created following the fantastic Neovim from scratch [playlist](https://www.youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ) by chris@machine
+https://github.com/LunarVim/Neovim-from-scratch
