@@ -5,6 +5,7 @@ local modules = {
   'user.reload',
   'user.nvim-tree',
   'user.gitsigns',
+  'user.lsp',
 }
 
 -- disable netrw. using nvim tree instead
