@@ -44,3 +44,5 @@ vim.opt.smartcase = true            -- overrides ignorecase if search pattern co
 -- vim.opt.guicursor = ""
 vim.opt.guifont = "monospace:h17"   -- font to use in gui apps
 
+vim.opt.completeopt="menu,menuone,noselect"
+
