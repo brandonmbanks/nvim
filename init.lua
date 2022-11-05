@@ -5,6 +5,7 @@ local modules = {
   'user.reload',
   'user.nvim-tree',
   'user.gitsigns',
+  'user.mason',
   'user.lsp',
   'user.cmp',
 }

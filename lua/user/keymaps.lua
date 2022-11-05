@@ -61,3 +61,6 @@ map('i', 'kk', '<Esc>', opts)
 map('v', '<A-k>', ':m .+1<CR>==', opts)
 map('v', '<A-j>', ':m .-1<CR>==', opts)
 
+-- pass whole file to indentation tool
+-- gg=G''
+
