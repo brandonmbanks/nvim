@@ -8,6 +8,7 @@ local modules = {
   'user.mason',
   'user.lsp',
   'user.cmp',
+  'user.indent-blankline',
 }
 
 -- disable netrw. using nvim tree instead

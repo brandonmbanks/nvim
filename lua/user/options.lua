@@ -41,8 +41,9 @@ vim.opt.incsearch = true            -- show where the search pattern matches as 
 vim.opt.ignorecase = true           -- ingores case in search pattern
 vim.opt.smartcase = true            -- overrides ignorecase if search pattern contains upper case
 
--- vim.opt.guicursor = ""
+vim.opt.guicursor = ""
 vim.opt.guifont = "monospace:h17"   -- font to use in gui apps
+vim.opt.termguicolors = true
 
 vim.opt.completeopt="menu,menuone,noselect"
 
