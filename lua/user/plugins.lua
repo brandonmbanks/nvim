@@ -80,7 +80,7 @@ return packer.startup(function(use)
 
     -- syntax highlighting
     use 'nvim-treesitter/nvim-treesitter'
-    require'nvim-treesitter.configs'.setup {
+    require('nvim-treesitter.configs').setup {
         -- A list of parser names, or 'all'
         ensure_installed = { 'go', 'lua', 'rust' },
 
