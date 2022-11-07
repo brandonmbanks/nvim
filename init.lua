@@ -5,6 +5,10 @@ local modules = {
   'user.reload',
   'user.nvim-tree',
   'user.gitsigns',
+  'user.mason',
+  'user.lsp',
+  'user.cmp',
+  'user.indent-blankline',
 }
 
 -- disable netrw. using nvim tree instead
