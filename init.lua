@@ -4,6 +4,8 @@ local modules = {
   'user.plugins',
   'user.reload',
   'user.nvim-tree',
+  'user.treesitter',
+  'user.telescope',
   'user.gitsigns',
   'user.mason',
   'user.lsp',
