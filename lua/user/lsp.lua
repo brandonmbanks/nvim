@@ -1,6 +1,6 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>d', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -14,7 +14,7 @@ local on_attach = function(client, bufnr)
 
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -28,7 +28,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    --vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', '<space>F', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
@@ -41,12 +41,12 @@ local lspconfig = require('lspconfig')
 local lsp_defaults = lspconfig.util.default_config
 
 lsp_defaults.capabilities = vim.tbl_deep_extend(
-  'force',
-  lsp_defaults.capabilities,
-  require('cmp_nvim_lsp').default_capabilities()
+    'force',
+    lsp_defaults.capabilities,
+    require('cmp_nvim_lsp').default_capabilities()
 )
 
-lspconfig['rust_analyzer'].setup{
+lspconfig['rust_analyzer'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
     settings = {
@@ -54,12 +54,12 @@ lspconfig['rust_analyzer'].setup{
     }
 }
 
-lspconfig['gopls'].setup{
+lspconfig['gopls'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
 }
 
-lspconfig['sumneko_lua'].setup{
+lspconfig['sumneko_lua'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
     settings = {
@@ -71,6 +71,9 @@ lspconfig['sumneko_lua'].setup{
     }
 }
 
+-- autoformat on save
+--vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+
 --local servers =  { 'gopls', 'rust_analyzer', 'sumneko_lua'}
 --for _, lsp in ipairs(servers) do
 --    lspconfig[lsp].setup{
@@ -78,4 +81,3 @@ lspconfig['sumneko_lua'].setup{
 --        flag = lsp_flags,
 --    }
 --end
-

@@ -13,6 +13,9 @@ vim.g.maplocalleader = ' '
 
 map('n', '<leader>sv', '<cmd>lua ReloadConfig()<CR>')
 
+-- replace
+map('n', '<leader>R', ':%s//gI<Left><Left><Left>')
+
 -- Modes
 --  normal_mode = 'n'
 --  insert_mode = 'i'
@@ -36,19 +39,21 @@ map('n', '<leader>fg', builtin.live_grep)
 map('n', '<leader>fb', builtin.buffers)
 map('n', '<leader>fh', builtin.help_tags)
 map('n', '<leader>gb', builtin.git_branches)
+map('n', '<leader>fs', builtin.lsp_document_symbols)
+map('n', 'gr', builtin.lsp_references)
 
 -- file explorer
 map('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
 
 -- terminal
 map('t', '<Esc>', '<C-\\><C-N>') -- exit terminal mode
-map('n', '<leader>t', ':vsplit term://bash<CR>')
+map('n', '<leader>t', ':vsplit |term<CR>i')
 
 -- resize windows with arrows
-map('n', '<C-Up>', ':resize +2<CR>', opts)
-map('n', '<C-Down>', ':resize -2<CR>', opts)
-map('n', '<C-Left>', ':vertical resize -2<CR>', opts)
-map('n', '<C-Right>', ':vertical resize +2<CR>', opts)
+map('n', '<A-Up>', ':resize +2<CR>', opts)
+map('n', '<A-Down>', ':resize -2<CR>', opts)
+map('n', '<A-Left>', ':vertical resize -2<CR>', opts)
+map('n', '<A-Right>', ':vertical resize +2<CR>', opts)
 
 -- Insert --
 -- quick exit to normal mode
@@ -58,9 +63,15 @@ map('i', 'kk', '<Esc>', opts)
 
 -- Visual
 -- move text
-map('v', '<A-k>', ':m .+1<CR>==', opts)
-map('v', '<A-j>', ':m .-1<CR>==', opts)
+map('v', '<A-j>', ':m .+1<CR>==', opts)
+map('v', '<A-k>', ':m .-2<CR>==', opts)
+
+-- dont copy when pasting over word
+map('v', 'p', '"_dP', opts)
+
+-- stay in indent mode
+map('v', '>', '>gv', opts)
+map('v', '<', '<gv', opts)
 
 -- pass whole file to indentation tool
 -- gg=G''
-
